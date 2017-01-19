@@ -1,0 +1,29 @@
+<p local-class="disclaimer">
+  Hand-crafted with
+  <span local-class="heart"></span>
+  by
+
+  {{#if authorName}}
+
+    {{#if authorLink}}
+      <a 
+        local-class="link"
+        href={{authorLink}}
+        target="_blank"
+      >
+        {{authorName}}
+      </a>
+    {{else}}
+      {{authorName}}
+    {{/if}}
+
+  {{else}}
+
+    <span local-class="placeholder">
+      (set your name in the "author" section of  package.json)
+    </span>
+
+  {{/if}}
+
+</p>
+
