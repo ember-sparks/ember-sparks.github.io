@@ -15,7 +15,8 @@
   "scripts": {
     "build": "ember build",
     "start": "ember server",
-    "test": "ember try:each"
+    "test": "ember try:each",
+    "deploy": "ember github-pages:commit --branch master --message \"Deploy gh-pages from commit $(git rev-parse HEAD)\"; git push -u origin master; git checkout ember;"
   },
   "dependencies": {
     "autoprefixer": "6.6.1",
