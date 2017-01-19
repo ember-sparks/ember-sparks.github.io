@@ -2,7 +2,9 @@
   "name": "ember-sparks-web",
   "version": "0.0.0",
   "description": "The default blueprint for ember-cli addons.",
-  "keywords": [],
+  "keywords": [
+    "ember-addon"
+  ],
   "license": "MIT",
   "author": "",
   "directories": {
