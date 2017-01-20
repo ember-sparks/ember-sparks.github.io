@@ -60,7 +60,7 @@ export default Ember.Component.extend({
    * Determine if the user is on a touch device:
    */
   hasTouch: Ember.computed(function() {
-    return (('ontouchstart' in window) || window.DocumentTouch && document instanceof DocumentTouch);
+    return (('ontouchstart' in window) || window.DocumentTouch);
   }),
 
   actions: {
