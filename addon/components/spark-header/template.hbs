@@ -25,9 +25,9 @@
           link component-list-button
           {{if hasTouch 'has-touch'}}
         " 
-        {{action "toggleComponents" true on="mouseEnter"}}
-        {{action "toggleComponents" false on="mouseLeave"}}
-        {{action "toggleComponents" on="click"}}
+        onmouseenter={{action "toggleComponents" true}}
+        onmouseleave={{action "toggleComponents" false}}
+        onclick={{action "toggleComponents" null}}
       >
         {{componentsTitle}}
         {{spark-header/component-menu

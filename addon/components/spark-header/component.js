@@ -64,8 +64,12 @@ export default Ember.Component.extend({
   }),
 
   actions: {
-    toggleComponents(value) {
-      if (value !== undefined) {
+    toggleComponents(value, e) {
+      if (e && e.stopPropagation) {
+        e.stopPropagation();
+      }
+
+      if (value !== null && value !== undefined) {
         this.set('showComponents', value);
       } else {
         this.toggleProperty('showComponents');
