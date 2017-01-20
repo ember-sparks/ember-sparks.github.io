@@ -1,4 +1,10 @@
 import Ember from 'ember';
+
+import {
+  getStrBetweenChars,
+  dashToCamelCase,
+} from './utils';
+
 let $ = Ember.$;
 
 const PROPERTIES_TITLE = "Properties";
@@ -113,13 +119,6 @@ function getStylingFromList($list) {
   return classes;
 }
 
-function getStrBetweenChars(str, firstChar, secondChar) {
-  var startPos = str.indexOf(firstChar) + firstChar.length;
-  var endPos = str.indexOf(secondChar, startPos);
-  var newStr = str.substring(startPos, endPos);
-  return newStr.trim();
-}
-
 function codeStrToObj(code) {
   let declarationsStr = getStrBetweenChars(code, "{", "}");
   let declarations = declarationsStr.split('\n');
@@ -146,12 +145,6 @@ function appendStrToObjCSS(obj, str) {
   let value = getStrBetweenChars(str, ':', ';').trim();
 
   obj[prop] = value;
-}
-
-function dashToCamelCase(str) {
-  return str.replace(/-([a-z])/g, function(g) {
-    return g[1].toUpperCase();
-  });
 }
 
 function getValuesFromTable($table) {

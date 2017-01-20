@@ -42,11 +42,18 @@
       </li>
     {{/if}}
 
-    <li local-class="li">
-      <a local-class="link">
-        GitHub
-      </a>
-    </li>
+    {{#if githubURL}}
+      <li local-class="li">
+        <a 
+          local-class="link"
+          href={{githubURL}}
+          target="_blank"
+        >
+          GitHub
+        </a>
+      </li>
+    {{/if}}
+
   </ul>
 {{/spark-content-container}}
 

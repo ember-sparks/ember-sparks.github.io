@@ -30,6 +30,10 @@ export default Ember.Component.extend({
     return !this.get('isSmall') && !this.get('invert');
   }),
 
+  githubURL: Ember.computed('config', function() {
+    return this.get('config.githubURL');
+  }),
+
   _scrollListener: null,
 
   didInsertElement() {

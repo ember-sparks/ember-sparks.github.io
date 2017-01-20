@@ -1,7 +1,10 @@
 <ul local-class="ul">
   {{#each sparkComponents as |componentName|}}
     <li local-class="li">
-      <a local-class="link">
+      <a 
+        local-class="link"
+        href={{concat domain componentName}}
+      >
         {{componentName}}
       </a>
     </li>
