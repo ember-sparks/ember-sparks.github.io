@@ -23,5 +23,5 @@ module.exports = function(defaults) {
     }
   });
 
-  return app.toTree(extraAssets);
+  return app.toTree();
 };
