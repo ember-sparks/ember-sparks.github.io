@@ -5,7 +5,7 @@
     Why reinvent the wheel when you can just drop a spark component into your template and let it do the heavy-lifting?
   </p>
 
-  {{#click-outside action="toggleComponents"}}
+  {{#click-outside action="toggleComponents" except-selector="nav"}}
     <button 
       local-class="button" 
       {{action "toggleComponents" true}}

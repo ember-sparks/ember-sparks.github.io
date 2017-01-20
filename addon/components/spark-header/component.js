@@ -65,13 +65,6 @@ export default Ember.Component.extend({
 
   actions: {
     toggleComponents(value) {
-      let hasTouch = this.get('hasTouch');
-
-      if (value !== undefined && hasTouch) {
-        // Hover is only for non-touch devices:
-        return;
-      }
-
       if (value !== undefined) {
         this.set('showComponents', value);
       } else {
