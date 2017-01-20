@@ -7,6 +7,8 @@ export default Ember.Component.extend({
   layout,
   styles,
 
+  localClassNames: 'result',
+
   /* styleClasses comes from config */
 
   styleClass: Ember.computed('styleClasses', 'identifier', function() {

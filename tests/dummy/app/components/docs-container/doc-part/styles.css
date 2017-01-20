@@ -1,4 +1,5 @@
 @value code-font from 'dummy/components/landing-top/install-code/styles';
+@value mobile-width: 620px;
 
 .container {
   /* Compensate for header height: */
@@ -12,6 +13,9 @@
   font-size: 28px;
   font-weight: 300;
   color: #5d3232;
+  @media all and (max-width: mobile-width) {
+    text-align: center;
+  }
 }
 
 .text-container {
@@ -40,6 +44,7 @@
     color: rgba(160, 141, 127, 0.77);
     font-style: oblique;
     font-weight: 400;
+    line-height: 45px;
   }
 
   & .cite {
@@ -59,6 +64,10 @@
   color: rgba(72, 68, 65, 0.89);
   font-weight: 400;
   margin: 23px 0;
+  @media all and (max-width: mobile-width) {
+    font-size: 16px;
+    line-height: 37px;
+  }
 }
 
 .code-block {
@@ -73,6 +82,9 @@
 .code {
   font-family: code-font;
   font-size: 16px;
+  @media all and (max-width: mobile-width) {
+    font-size: 14px;
+  }
 }
 
 

@@ -1,6 +1,6 @@
 @value text-color: white;
 @value text-color-alt: #E6654D;
-@value mobile-width: 575px;
+@value mobile-width: 600px;
 
 .nav {
   padding: 30px 0;
@@ -115,6 +115,10 @@
       width: 100%;
       background-color: text-color;
     }
+  }
+
+  @media all and (max-width: mobile-width) {
+    padding: 20px 12px;
   }
 }
 

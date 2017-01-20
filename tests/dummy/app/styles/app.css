@@ -1,6 +1,6 @@
 /*
  * Fixes transition.svg overflow:
  */
-body {
+body > :global(.ember-view):first-of-type {
   overflow-x: hidden;
 }

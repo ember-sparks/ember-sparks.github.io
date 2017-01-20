@@ -24,7 +24,7 @@ function parseGithubURL(url) {
     return buildLinkFromGitURL(url);
   } else {
     // https://github.com...
-    return url;
+    return url.replace('.git', '');
   }
 }
 

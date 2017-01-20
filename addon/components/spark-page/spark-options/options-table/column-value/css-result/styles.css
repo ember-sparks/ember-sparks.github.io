@@ -1,1 +1,7 @@
+@value mobile-breakpoint from '../../../options-table/styles';
 
+@media all and (max-width) {
+  .result {
+    padding: 20px 0;
+  }
+}

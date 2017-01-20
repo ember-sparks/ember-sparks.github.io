@@ -1,17 +1,20 @@
 {
   "name": "ember-sparks-web",
   "version": "0.0.0",
-  "description": "The default blueprint for ember-cli addons.",
+  "description": "The website for Ember Sparks.",
   "keywords": [
     "ember-addon"
   ],
   "license": "MIT",
-  "author": "",
+  "author": "Tristan Edwards <tristan.edwards@me.com> (http://tristanedwards.me)",
   "directories": {
     "doc": "doc",
     "test": "tests"
   },
-  "repository": "",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/ember-sparks/ember-sparks.git"
+  },
   "scripts": {
     "build": "ember build",
     "start": "ember server",
