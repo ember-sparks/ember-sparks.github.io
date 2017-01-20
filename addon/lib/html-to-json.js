@@ -144,7 +144,9 @@ function appendStrToObjCSS(obj, str) {
   prop = dashToCamelCase(prop);
   let value = getStrBetweenChars(str, ':', ';').trim();
 
-  obj[prop] = value;
+  if (prop) {
+    obj[prop] = value;
+  }
 }
 
 function getValuesFromTable($table) {

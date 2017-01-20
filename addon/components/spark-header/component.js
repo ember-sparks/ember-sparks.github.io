@@ -56,9 +56,27 @@ export default Ember.Component.extend({
     this.set('isSmall', reachedOffset);
   },
 
+  /*
+   * Determine if the user is on a touch device:
+   */
+  hasTouch: Ember.computed(function() {
+    return (('ontouchstart' in window) || window.DocumentTouch && document instanceof DocumentTouch);
+  }),
+
   actions: {
     toggleComponents(value) {
-      this.set('showComponents', value);
+      let hasTouch = this.get('hasTouch');
+
+      if (value !== undefined && hasTouch) {
+        // Hover is only for non-touch devices:
+        return;
+      }
+
+      if (value !== undefined) {
+        this.set('showComponents', value);
+      } else {
+        this.toggleProperty('showComponents');
+      }
     },
   },
 });

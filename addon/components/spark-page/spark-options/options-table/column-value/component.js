@@ -9,6 +9,18 @@ export default Ember.Component.extend({
 
   tagName: '',
 
+  hasCSS: Ember.computed('columnValue', 'isDemo', function() {
+    let isDemo = this.get('isDemo');
+    let cssValues = this.get('columnValue');
+    let hasCSS = Object.keys(cssValues);
+
+    return isDemo && hasCSS;
+  }),
+
+  styleClasses: Ember.computed('config.styleClasses', function() {
+    return this.get('config.styleClasses');
+  }),
+
   isCSSClass: Ember.computed('title', 'name', function() {
     let title = this.get('title');
     let name = this.get('name');
@@ -24,7 +36,7 @@ export default Ember.Component.extend({
     let isCSSClass = this.get('isCSSClass');
     let value = this.get('value');
 
-    // Don't show a "null" string:
+    // Don't show a "null" string, just keep the field empty:
     if (value === "null") {
       value = null;
     }

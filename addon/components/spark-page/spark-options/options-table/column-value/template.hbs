@@ -3,27 +3,29 @@
 --}}
 {{#if isDemo}}
 
-  <td
-    local-class="td"
-    data-name={{name}}
-  >
-    {{spark-page/spark-options/options-table/column-value/css-code
-      identifier=identifier
-      options=columnValue
-    }}
-  </td>
+  {{#if hasCSS}}
+    <td
+      local-class="td"
+      data-name={{name}}
+    >
+      {{spark-page/spark-options/options-table/column-value/css-code
+        identifier=identifier
+        options=columnValue
+      }}
+    </td>
 
-  <td
-    local-class="td"
-  >
-    {{#spark-page/spark-options/options-table/column-value/css-result
-      identifier=identifier
-      styleClasses=config.styleClasses
-      options=columnValue
-    }}
-      {{yield}}
-    {{/spark-page/spark-options/options-table/column-value/css-result}}
-  </td>
+    <td
+      local-class="td"
+    >
+      {{#spark-page/spark-options/options-table/column-value/css-result
+        identifier=identifier
+        styleClasses=styleClasses
+        options=columnValue
+      }}
+        {{yield}}
+      {{/spark-page/spark-options/options-table/column-value/css-result}}
+    </td>
+  {{/if}}
 
 {{else}}
 

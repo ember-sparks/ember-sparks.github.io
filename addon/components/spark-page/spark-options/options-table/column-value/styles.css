@@ -6,6 +6,8 @@
   font-size: 17px;
   color: rgba(81,53,53,0.68);
   &.name {
+    font-family: code-font;
+    font-size: 16px;
     color: #2E9FEF;
     white-space: nowrap;
   }
@@ -13,13 +15,18 @@
     color: #bf2a5c;
     font-family: code-font;
   }
+  &.default {
+    font-family: code-font;
+    font-size: 16px;
+  }
   &.description {
     color: rgba(0, 0, 0, 0.65);
     line-height: 25px;
     font-size: 16px;
   }
   &.css-class {
-    color: #9372af;
+    font-family: code-font;
+    color: #9a61cc;
   }
 
   & code {

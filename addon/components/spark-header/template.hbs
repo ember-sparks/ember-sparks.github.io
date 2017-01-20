@@ -21,9 +21,13 @@
   <ul local-class="links">
     <li local-class="li">
       <a 
-        local-class="link component-list-button" 
+        local-class="
+          link component-list-button
+          {{if hasTouch 'has-touch'}}
+        " 
         {{action "toggleComponents" true on="mouseEnter"}}
         {{action "toggleComponents" false on="mouseLeave"}}
+        {{action "toggleComponents" on="click"}}
       >
         {{componentsTitle}}
         {{spark-header/component-menu

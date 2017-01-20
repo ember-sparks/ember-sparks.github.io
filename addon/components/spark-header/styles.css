@@ -96,18 +96,9 @@
   &.component-list-button {
     padding: 20px;
     white-space: nowrap;
-    /*
-    &:hover {
-      & .component-menu {
-        pointer-events: auto;
-        opacity: 1;
-        transform: default-position;
-        @media all and (max-width: mobile-width) {
-          transform: none;
-        }
-      }
+    &.has-touch::after {
+      display: none;
     }
-    */
   }
 
   &:hover {
