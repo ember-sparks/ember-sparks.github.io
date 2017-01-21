@@ -3,18 +3,31 @@
 </span>
 =
 
-<span local-class="editable-wrapper">
-  {{content-editable
-    local-class="option-value"
-    tagName="span"
-    value=value
-    type="text"
-    allowNewlines=false
-    placeholder="null"
-  }}
+{{#if valueIsBoolean}}
 
-  <span 
-    local-class="fake-cursor"
-    class="blink-cursor"
-  ></span>
-</span>
+  <button 
+    local-class="bool-button {{value}}"
+    onclick={{action "toggleBoolValue"}}
+  >
+    {{value}}
+  </button>
+
+{{else}}
+
+  <span local-class="editable-wrapper">
+    {{content-editable
+      local-class="option-value"
+      tagName="span"
+      value=value
+      type="text"
+      allowNewlines=false
+      placeholder="null"
+    }}
+
+    <span 
+      local-class="fake-cursor"
+      class="blink-cursor"
+    ></span>
+  </span>
+
+{{/if}}
