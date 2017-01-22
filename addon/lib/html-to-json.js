@@ -169,7 +169,14 @@ function getValuesFromTable($table) {
 
     $row.find('td').each(function(titleIndex) {
       let title = titles[titleIndex];
-      let value = $(this).text();    
+
+      let value;
+
+      if (title === "description") {
+        value = $(this).html();
+      } else {
+        value = $(this).text();
+      }
 
       row[title] = value;
     });
