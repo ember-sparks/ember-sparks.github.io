@@ -1,7 +1,7 @@
 #!/bin/bash
 set -xe
 
-ember github-pages:commit --branch master --message \"Deploy gh-pages from commit $(git rev-parse HEAD)\";
+ember github-pages:commit --branch master --message "Deploy gh-pages from commit $(git rev-parse HEAD)";
 
 # Add Symlinks:
 git checkout master;
