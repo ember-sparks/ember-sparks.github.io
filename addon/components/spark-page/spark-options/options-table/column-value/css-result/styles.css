@@ -1,7 +1,8 @@
 @value mobile-breakpoint from '../../../options-table/styles';
 
-@media all and (max-width) {
-  .result {
+.result {
+  text-align: center;
+  @media all and (max-width) {
     padding: 20px 0;
   }
 }

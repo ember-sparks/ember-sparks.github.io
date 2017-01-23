@@ -28,6 +28,9 @@
     font-family: code-font;
     color: #9a61cc;
   }
+  &[data-name="demo"] {
+    max-width: 300px;
+  }
 
   & code {
     font-family: code-font;

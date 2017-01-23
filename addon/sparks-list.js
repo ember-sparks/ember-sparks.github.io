@@ -6,5 +6,7 @@
 export default [
   "input-spark",
   "button-spark",
+  "toggle-spark",
+  "select-spark",
 ];
 
