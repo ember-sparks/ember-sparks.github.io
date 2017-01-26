@@ -18,7 +18,7 @@
     left: -10px;
     right: -10px;
     background-size: contain;
-    background-repeat-y: no-repeat;
+    background-repeat: repeat-x;
     background-position: center bottom;
   }
 }

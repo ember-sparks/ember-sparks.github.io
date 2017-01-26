@@ -5,12 +5,12 @@ ember github-pages:commit --branch master --message "Deploy gh-pages from commit
 
 # Add Symlinks:
 git checkout master;
-rm 404.html;
-rm docs.html;
-ln -s index.html 404.html;
-ln -s index.html docs.html;
-git add .;
-git commit -m "Re-add symlinks";
+#rm 404.html;
+#rm docs.html;
+#ln -s index.html 404.html;
+#ln -s index.html docs.html;
+#git add .;
+#git commit -m "Re-add symlinks";
 git push -u origin master;
 git checkout ember;
 

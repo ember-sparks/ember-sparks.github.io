@@ -23,6 +23,14 @@ module.exports = function(environment) {
     }
   };
 
+  ENV['ember-code-block'] = {
+    languages: {
+      only: ['bash']
+    },
+   
+    style: 'solarized-dark'
+  };
+
   if (environment === 'development') {
     // ENV.APP.LOG_RESOLVER = true;
     // ENV.APP.LOG_ACTIVE_GENERATION = true;

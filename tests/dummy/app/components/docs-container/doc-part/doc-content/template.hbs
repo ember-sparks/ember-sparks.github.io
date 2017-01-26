@@ -1,0 +1,183 @@
+{{#if (eq docId "why")}}
+
+  <blockquote>
+    <p>
+      Design isn't about how it looks, it's about how it works.
+    </p>
+    <cite>
+      Steve Jobs
+    </cite>
+  </blockquote>
+
+  <p>
+    Do you ever feel like you're always reimplementing the same UI elements for every web app that you're building? You're not alone. Whether it's a button with a loading state, or an input that can show an error message, there are some components that could be considered more or less mandatory for every app.
+  </p>
+
+  <p>
+    Enter <strong>Ember Sparks</strong>. Using the power of the Ember ecosystem, we can develop a set of components that handle the common functionality that we all need in our apps, while keeping them manageable and customizeable thanks to <a href="https://css-tricks.com/css-modules-part-1-need/" target="_blank">local classes</a> and <a href="https://github.com/salsify/ember-css-modules" target="_blank">ember-css-modules</a>.
+  </p>
+
+{{else if (eq docId 'install')}}
+
+  <p>
+    Installing Ember Sparks for your Ember app is a piece of cake:
+  </p>
+
+  {{code-snippet name="install.bash"}}
+
+  <p>Restart your app and you're good to go!</p>
+
+{{else if (eq docId 'usage')}}
+
+  <p>
+    Ember Sparks comes with some handy preinstalled components, such as <code>&#123;&#123;input-spark&#125;&#125;</code> and <code>&#123;&#123;toggle-spark&#125;&#125;</code>.
+  </p>
+
+  <p>
+    You can use them just by dropping them into your template:
+  </p>
+
+  {{code-snippet name="example.hbs"}}
+
+  <p>
+    Check out the "Components" link in the top menu to read more about the available options for the built-in Sparks.
+  </p>
+
+{{else if (eq docId 'theming')}}
+
+  <p>
+    One flaw that other UI libraries have is that they're often cumbersome to style. Either their class names are too general and collide with your app's own classes, or they come with weird prefixes that are difficult to remember and make your CSS feel dirty.
+  </p>
+
+  <p>
+    Thanks to local classes, Ember Sparks makes styling easy. Here's a quick example of the steps you need to style the <code>&#123;&#123;input-spark&#125;&#125;</code> in your app.
+  </p>
+
+  <ol>
+    <li>Install the <a href="https://github.com/salsify/ember-css-modules" target="_blank">ember-css-modules</a> addon. This makes sure that your app's classes are local, and is the foundation that Ember Sparks is built on.</li>
+
+    <li>Next, use the built-in "spark-style" generator, and specify the name of the Spark that you want to style:</li>
+  </ol>
+
+  {{code-snippet name="style-generate.bash"}}
+
+  <p>
+    You should now have an empty CSS-file at <code>app/components/input-spark/styles.css</code> where you'll be able to overwrite the Spark's default styles. You can find the names of the classes in the "Theming" section of the <a href="http://ember-sparks.com/input-spark" target="_blank">component's documentation</a>.
+  </p>
+
+  {{code-snippet name="style-default.css"}}
+
+  <p>
+    And that's all you need to overwrite the default theme!
+  </p>
+  
+  <p>Next, you might not want <em>all</em> your inputs to look exactly the same, some might be bigger or smaller than others depending on where they are in the app. Ember Sparks components don't have a "size" parameter or anything similar to it. Instead, it leaves the custom styling up to the user through CSS and a single <code>style</code>-parameter.
+  </p>
+
+  <p>
+  Here's an example of how we can define and apply a <code>big</code>-style to our Spark instance (note that we are using the plugin <a href="https://github.com/jonathantneal/postcss-nesting" target="_blank">postcss-nesting</a> with ember-css-modules to handle nesting, but you could also just write it as <code>.style:global(.big) .input</code>):
+  </p>
+
+  {{code-snippet name="style-big.hbs"}}
+
+  {{code-snippet name="style-big.css"}}
+
+  <p>The reason behind this convention is two-fold:</p>
+
+  <ol>
+    <li>
+      <strong>Better separation of concerns</strong>: It makes sure that everything related to styling is kept in CSS, instead of overrelying on component props.
+    </li>
+    <li>
+      <strong>Keeping it DRY</strong>: By having all the input's styles in a single CSS file, it forces the user to create a limited number of reusable styles, instead of always slightly tweaking the component (and probably duplicating CSS) for each page.
+    </li>
+  </ol>
+
+{{else if (eq docId 'contribute')}}
+
+  <h4>Creating your own Spark component</h4>
+
+  <p>
+    Do you have a cool idea for a Spark component? Creating your own is actually really simple!
+  </p>
+
+  <ol>
+    <li>
+      Start by generating a new addon project. In this example, we'll call it "ember-my-spark":
+      {{code-snippet name="addon-new.bash"}}
+    </li>
+    <li>
+      Once everything has finished installing, cd into the app and install Ember Sparks:
+      {{code-snippet name="addon-install.bash"}}
+    </li>
+    <li>
+      Use the built-in blueprint to turn your addon into a Spark project. This is where you specify what the namespace of your component will be. In this case it's <code>&#123;&#123;my-spark&#125;&#125;</code>:
+      {{code-snippet name="addon-generate.bash"}}
+      You will now be asked if you want to replace certain files. Just choose yes ("y") every time.
+
+      <img src="/images/docs/overwrite-files.png" />
+    </li>
+    <li>
+      Finally, open your <code>package.json</code> file and move the dependencies <code>ember-htmlbars</code>, <code>ember-css-modules</code> and <code>ember-sparks</code> from "devDependencies" to "dependencies", since they are required for the addon and not just for the dummy app.
+    </li>
+  </ol>
+
+  <p>
+    If you now start the Ember server (<code>ember server</code>), you'll see that your Spark's presentation page has already been generated, and you're ready to start creating your component!
+  </p>
+
+  <img src="/images/docs/my-spark-page.png" />
+
+  <p>
+    The majority of your work will be done inside the <code>addon</code> folder. If you've created an Ember component before, you should be familiar with how this works.
+  </p>
+
+  <h4>Conventions</h4>
+
+  <p>There are some conventions that all Spark components should follow:</p>
+
+  <ol>
+    <li>
+      The component's base element should already have the local classes <code>.container</code> and <code>.style</code>. These class names are <strong>reserved</strong> – don't change them. Also keep the styling of the container to a minimum.
+    </li>
+    <li>
+      Local classes that can be themed by the user should <strong>use the "spark"-helper</strong>. This ensures that your element gets two classes, one <strong>public</strong> and one <strong>private</strong> (the private one starts with an underscore). As an example, <code>div local-class=&#123;&#123;spark "input"&#125;&#125;</code> adds the local classes <code>.input</code> and <code>._input</code>. As the addon author, you should only style <code>._input</code> (the one <em>with</em> an underscore) and keep the other one empty so that it can eventually be used by the user to overwrite some styles.
+    </li>
+    <li>
+      <strong>Don't overthink the names of your classes</strong>. Since they are local, there's no risk for naming conflicts. Usually, <code>.label</code> is always better than something like <code>.my-spark__label-small</code>.
+      Always ask yourself "how can I make this easy for the user to style?". It's also generally better to create a new element with a short descriptive class, rather than using pseudo-elements.
+    </li>
+    <li>
+      Favour the <strong>DDAU</strong> ("Data Down, Actions Up") approach when developing your Spark component. In other words, you should prefer a <strong>unidirectional flow</strong> instead of two-way data binding, as this is more future-proof, has less side effects, and will ensure a gracious upgrade for your addon's users once Ember supports Glimmer components.
+    </li>
+    <li>
+      Action names should be <strong>camelCased</strong> and start with "on", e.g. <code>onKeyUp</code>. 
+    </li>
+  </ol>
+
+  <h4>Documentation</h4>
+
+  <p>Documentation is important. Luckily, Ember Sparks addons make it easy thanks to their magic README-file!</p>
+
+  <p>If you open your addon project's README.md, you'll see that there are already some sections that correspond to your Spark's presentation page, like "Properties" and "Theming". Whenever you add a new property or a new class here in Markdown-format, your Spark page will automatically update. Go ahead and try it!
+  </p>
+
+  <p>As you might have noticed, there's also a live demo at the top of your Spark's presentation page. To set some properties that the user can interact with, open the file <code>tests/dummy/config/environment.js</code>. Under "sparks", there's a "demo"-object where you can set their names and default values. 
+  </p>
+
+  {{code-snippet name="addon-demo.js"}}
+  
+  <p>You also have to pass these properties to the actual component in <code>tests/dummy/app/templates/application.hbs</code> so that the result can be shown.
+  </p>
+
+  {{code-snippet name="addon-usage.hbs"}}
+
+  <p>
+    When you're done with your component and its documentation, you can publish the Spark to NPM!
+  </p>
+  
+  <p>If you think that your Spark should be part of the standard library, create a pull request for the Ember Sparks project and we'll determine if we should include it. :)
+  </p>
+
+{{/if}}
+

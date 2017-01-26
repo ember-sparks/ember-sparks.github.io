@@ -10,9 +10,6 @@ var nesting = require('postcss-nesting');
 var autoprefixer = require('autoprefixer');
 
 module.exports = function(defaults) {
-  var app = new EmberAddon(defaults, {
-    // Add options here
-  });
 
   var app = new EmberAddon(defaults, {
     cssModules: {
@@ -20,7 +17,16 @@ module.exports = function(defaults) {
         nesting(),
         autoprefixer('last 2 versions'),
       ]
-    }
+    },
+
+    snippetPaths: ['tests/dummy/app/doc-snippets'],
+
+    nodeAssets: {
+      'highlight.js': {
+        public: ['styles/solarized-dark.css']
+      }
+    },
+
   });
 
   return app.toTree();
