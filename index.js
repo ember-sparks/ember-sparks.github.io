@@ -15,9 +15,11 @@ var mergeTrees = require('broccoli-merge-trees');
 module.exports = {
   name: 'ember-sparks-web',
 
+  /*
   isDevelopingAddon: function() {
     return true;
   },
+  */
 
   googleFonts: [
     'Lato:100,300,400',
