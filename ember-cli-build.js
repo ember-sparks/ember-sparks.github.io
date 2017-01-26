@@ -19,6 +19,10 @@ module.exports = function(defaults) {
       ]
     },
 
+    fingerprint: {
+      exclude: ['images/logotype.png'],
+    },
+
     snippetPaths: ['tests/dummy/app/doc-snippets'],
 
     nodeAssets: {
