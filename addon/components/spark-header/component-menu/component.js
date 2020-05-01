@@ -6,7 +6,7 @@ import styles from './styles';
 // Offline backup:
 import COMPONENT_NAMES from 'ember-sparks-web/sparks-list';
 
-const DOMAIN = 'http://ember-sparks.com/';
+const DOMAIN = 'https://ember-sparks.github.io/';
 
 export default Ember.Component.extend({
   layout,
